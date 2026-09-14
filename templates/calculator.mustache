@@ -1,0 +1,147 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_trigonometry/calculator
+
+    Example context (json):
+    {
+        Aqui tem que criar o context em inglês
+    }
+}}
+<div id="{{id}}" class="mod-trigonometry-calculator"
+     data-undefined="{{undefined}}" data-outofdomain="{{outofdomain}}">
+    <div class="trigonometry-layout">
+        <section class="trigonometry-panel trigonometry-main-panel">
+            <div class="trigonometry-panel-header">
+                <h3>{{anglecalculator}}</h3>
+                <button type="button" class="btn btn-secondary trigonometry-clear">{{clear}}</button>
+            </div>
+
+            <div class="trigonometry-angle-controls">
+                <label class="trigonometry-field">
+                    <span>{{angle}}</span>
+                    <input class="form-control trigonometry-angle" type="number" inputmode="decimal" step="any" value="45">
+                </label>
+                <label class="trigonometry-field">
+                    <span class="accesshide">{{angle}}</span>
+                    <select class="form-control trigonometry-unit" aria-label="{{angle}}">
+                        <option value="degrees">{{degrees}}</option>
+                        <option value="radians">{{radians}}</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="trigonometry-results" aria-live="polite">
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{sine}}</span>
+                    <strong class="trigonometry-result-value" data-result="sin">0.7071067812</strong>
+                </div>
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{cosine}}</span>
+                    <strong class="trigonometry-result-value" data-result="cos">0.7071067812</strong>
+                </div>
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{tangent}}</span>
+                    <strong class="trigonometry-result-value" data-result="tan">1</strong>
+                </div>
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{coordinates}}</span>
+                    <strong class="trigonometry-result-value" data-result="coordinates">(0.7071, 0.7071)</strong>
+                </div>
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{normalizedangle}}</span>
+                    <strong class="trigonometry-result-value" data-result="normalized">45°</strong>
+                </div>
+            </div>
+
+            <h3 class="trigonometry-subtitle">{{inversecalculator}}</h3>
+            <div class="trigonometry-inverse-controls">
+                <label class="trigonometry-field trigonometry-value-field">
+                    <span>{{value}}</span>
+                    <input class="form-control trigonometry-inverse-value" type="number" inputmode="decimal" step="any" value="0.5">
+                </label>
+            </div>
+
+            <div class="trigonometry-results trigonometry-inverse-results" aria-live="polite">
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{arcsine}}</span>
+                    <strong class="trigonometry-result-value" data-result="asin">30°</strong>
+                    <small data-result="asinrad">0.5235987756 rad</small>
+                </div>
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{arccosine}}</span>
+                    <strong class="trigonometry-result-value" data-result="acos">60°</strong>
+                    <small data-result="acosrad">1.0471975512 rad</small>
+                </div>
+                <div class="trigonometry-result-card">
+                    <span class="trigonometry-result-label">{{arctangent}}</span>
+                    <strong class="trigonometry-result-value" data-result="atan">26.56505118°</strong>
+                    <small data-result="atanrad">0.463647609 rad</small>
+                </div>
+            </div>
+
+            <div class="trigonometry-formulas">
+                <h3>{{formulas}}</h3>
+                <div class="trigonometry-formula-grid">
+                    <div><strong>sen(θ)</strong> = y / r</div>
+                    <div><strong>cos(θ)</strong> = x / r</div>
+                    <div><strong>tan(θ)</strong> = sen(θ) / cos(θ) = y / x</div>
+                    <div><strong>sen²(θ) + cos²(θ)</strong> = 1</div>
+                    <div><strong>arcsen(x)</strong> → [-90°, 90°]</div>
+                    <div><strong>arccos(x)</strong> → [0°, 180°]</div>
+                    <div><strong>arctan(x)</strong> → (-90°, 90°)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trigonometry-panel trigonometry-circle-panel">
+            <h3>{{unitcircle}}</h3>
+            <p class="trigonometry-circle-hint">{{circlehint}}</p>
+            <div class="trigonometry-circle-stage">
+                <svg class="trigonometry-circle" viewBox="0 0 500 500" role="img" aria-label="{{unitcircle}}">
+                    <line class="trigonometry-axis" x1="40" y1="250" x2="460" y2="250"></line>
+                    <line class="trigonometry-axis" x1="250" y1="40" x2="250" y2="460"></line>
+                    <circle class="trigonometry-unit-circle" cx="250" cy="250" r="180"></circle>
+
+                    <line class="trigonometry-projection trigonometry-projection-x" x1="250" y1="250" x2="377.3" y2="250"></line>
+                    <line class="trigonometry-projection trigonometry-projection-y" x1="377.3" y1="250" x2="377.3" y2="122.7"></line>
+                    <line class="trigonometry-radius" x1="250" y1="250" x2="377.3" y2="122.7"></line>
+                    <path class="trigonometry-angle-arc" d="M 300 250 A 50 50 0 0 0 285.35 214.65"></path>
+
+                    <line class="trigonometry-tangent-line" x1="430" y1="70" x2="430" y2="430"></line>
+                    <line class="trigonometry-tangent-segment" x1="430" y1="250" x2="430" y2="70"></line>
+
+                    <circle class="trigonometry-point" cx="377.3" cy="122.7" r="9" tabindex="0"></circle>
+
+                    <text class="trigonometry-axis-label" x="468" y="243">x</text>
+                    <text class="trigonometry-axis-label" x="258" y="34">y</text>
+                    <text class="trigonometry-tick-label" x="426" y="272">1</text>
+                    <text class="trigonometry-tick-label" x="58" y="272">−1</text>
+                    <text class="trigonometry-tick-label" x="260" y="78">1</text>
+                    <text class="trigonometry-tick-label" x="260" y="435">−1</text>
+                    <text class="trigonometry-theta-label" x="308" y="220">θ</text>
+                </svg>
+            </div>
+            <input class="trigonometry-slider" type="range" min="-360" max="360" step="1" value="45" aria-label="{{angle}}">
+            <div class="trigonometry-circle-values">
+                <span>x = cos(θ): <strong data-circle="x">0.7071</strong></span>
+                <span>y = sen(θ): <strong data-circle="y">0.7071</strong></span>
+                <span>tan(θ): <strong data-circle="tan">1</strong></span>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,237 @@
+.mod-trigonometry-calculator {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.mod-trigonometry-calculator .trigonometry-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.mod-trigonometry-calculator .trigonometry-panel {
+    border: 1px solid #d7dce1;
+    border-radius: 12px;
+    background: #fff;
+    padding: 1.25rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-panel h3 {
+    margin-top: 0;
+}
+
+.mod-trigonometry-calculator .trigonometry-angle-controls,
+.mod-trigonometry-calculator .trigonometry-inverse-controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: end;
+    margin-bottom: 1rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+}
+
+.mod-trigonometry-calculator .trigonometry-angle {
+    min-width: 180px;
+}
+
+.mod-trigonometry-calculator .trigonometry-unit {
+    min-width: 130px;
+}
+
+.mod-trigonometry-calculator .trigonometry-value-field {
+    width: min(100%, 320px);
+}
+
+.mod-trigonometry-calculator .trigonometry-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-result-card {
+    min-width: 0;
+    padding: 0.85rem 1rem;
+    border: 1px solid #e0e4e8;
+    border-radius: 10px;
+}
+
+.mod-trigonometry-calculator .trigonometry-result-label,
+.mod-trigonometry-calculator .trigonometry-result-card small {
+    display: block;
+    opacity: 0.72;
+}
+
+.mod-trigonometry-calculator .trigonometry-result-value {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 1.15rem;
+    overflow-wrap: anywhere;
+}
+
+.mod-trigonometry-calculator .trigonometry-subtitle {
+    margin-top: 1.6rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-formulas {
+    margin-top: 1.6rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.mod-trigonometry-calculator .trigonometry-formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem 1rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-formula-grid > div {
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    background: #f7f8fa;
+}
+
+.mod-trigonometry-calculator .trigonometry-circle-panel {
+    position: sticky;
+    top: 1rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-circle-hint {
+    margin-bottom: 0.5rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-circle-stage {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.mod-trigonometry-calculator .trigonometry-circle {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mod-trigonometry-calculator .trigonometry-axis {
+    stroke: #9aa4af;
+    stroke-width: 1.5;
+}
+
+.mod-trigonometry-calculator .trigonometry-unit-circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+}
+
+.mod-trigonometry-calculator .trigonometry-radius {
+    stroke: currentColor;
+    stroke-width: 3;
+}
+
+.mod-trigonometry-calculator .trigonometry-projection {
+    stroke: #7b8794;
+    stroke-width: 1.5;
+    stroke-dasharray: 6 5;
+}
+
+.mod-trigonometry-calculator .trigonometry-angle-arc {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+.mod-trigonometry-calculator .trigonometry-point {
+    fill: #fff;
+    stroke: currentColor;
+    stroke-width: 4;
+    cursor: grab;
+}
+
+.mod-trigonometry-calculator .trigonometry-point:active {
+    cursor: grabbing;
+}
+
+.mod-trigonometry-calculator .trigonometry-tangent-line {
+    stroke: #c1c7cd;
+    stroke-width: 1;
+    stroke-dasharray: 5 5;
+}
+
+.mod-trigonometry-calculator .trigonometry-tangent-segment {
+    stroke: currentColor;
+    stroke-width: 2.5;
+}
+
+.mod-trigonometry-calculator .trigonometry-axis-label,
+.mod-trigonometry-calculator .trigonometry-tick-label,
+.mod-trigonometry-calculator .trigonometry-theta-label {
+    fill: currentColor;
+    font-size: 16px;
+}
+
+.mod-trigonometry-calculator .trigonometry-theta-label {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.mod-trigonometry-calculator .trigonometry-slider {
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-circle-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.mod-trigonometry-calculator .trigonometry-circle-values span {
+    padding: 0.55rem;
+    border-radius: 8px;
+    background: #f7f8fa;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .mod-trigonometry-calculator .trigonometry-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .mod-trigonometry-calculator .trigonometry-circle-panel {
+        position: static;
+    }
+}
+
+@media (max-width: 520px) {
+    .mod-trigonometry-calculator .trigonometry-panel {
+        padding: 1rem;
+    }
+
+    .mod-trigonometry-calculator .trigonometry-angle-controls {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .mod-trigonometry-calculator .trigonometry-angle,
+    .mod-trigonometry-calculator .trigonometry-unit {
+        width: 100%;
+    }
+
+    .mod-trigonometry-calculator .trigonometry-circle-values {
+        grid-template-columns: 1fr;
+    }
+}

@@ -21,7 +21,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define([], function() {
+define([], function () {
     const TAU = Math.PI * 2;
     const EPSILON = 1e-12;
     const SVG_CENTER = 250;
@@ -250,7 +250,7 @@ define([], function() {
 
         marker.addEventListener("keydown", event => {
             if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" &&
-                    event.key !== "ArrowUp" && event.key !== "ArrowDown") {
+                event.key !== "ArrowUp" && event.key !== "ArrowDown") {
                 return;
             }
             event.preventDefault();

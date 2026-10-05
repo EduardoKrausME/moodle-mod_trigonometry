@@ -27,5 +27,3 @@ All calculations run locally in the browser and the activity does not store pers
 ## Screenshots
 
 ![Trigonometry calculator](screenshots/new-1.png)
-
-![Interactive trigonometry activity](screenshots/new-2.png)

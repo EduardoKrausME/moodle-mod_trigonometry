@@ -24,18 +24,27 @@
 
 namespace mod_trigonometry\event;
 
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Event triggered when a Trigonometry activity is viewed.
  */
 class course_module_viewed extends \core\event\course_module_viewed {
+    /**
+     * Initialises the event data.
+     *
+     * @return void
+     */
     protected function init() {
         $this->data['objecttable'] = 'trigonometry';
         $this->data['crud'] = 'r';
         $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
     }
 
+    /**
+     * Returns the object ID mapping used during backup and restore.
+     *
+     * @return array
+     */
     public static function get_objectid_mapping() {
         return [
             'db' => 'trigonometry',

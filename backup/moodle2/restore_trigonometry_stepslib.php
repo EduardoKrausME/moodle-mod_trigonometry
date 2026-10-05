@@ -23,18 +23,28 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Restores one Trigonometry activity.
  */
 class restore_trigonometry_activity_structure_step extends restore_activity_structure_step {
+    /**
+     * Defines the paths restored from trigonometry.xml.
+     *
+     * @return restore_path_element[]
+     */
     protected function define_structure() {
         return $this->prepare_activity_structure([
             new restore_path_element('trigonometry', '/activity/trigonometry'),
         ]);
     }
 
+    /**
+     * Restores the Trigonometry activity record.
+     *
+     * @param array $data Restored activity data.
+     * @return void
+     */
     protected function process_trigonometry($data) {
         global $DB;
 
@@ -45,6 +55,11 @@ class restore_trigonometry_activity_structure_step extends restore_activity_stru
         $this->apply_activity_instance($newitemid);
     }
 
+    /**
+     * Restores files associated with the activity.
+     *
+     * @return void
+     */
     protected function after_execute() {
         $this->add_related_files('mod_trigonometry', 'intro', null);
     }

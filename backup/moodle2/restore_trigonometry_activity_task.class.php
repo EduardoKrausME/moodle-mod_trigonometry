@@ -31,21 +31,41 @@ require_once($CFG->dirroot . '/mod/trigonometry/backup/moodle2/restore_trigonome
  * Provides the steps to restore a Trigonometry activity.
  */
 class restore_trigonometry_activity_task extends restore_activity_task {
+    /**
+     * No activity-specific restore settings are required.
+     *
+     * @return void
+     */
     protected function define_my_settings() {
     }
 
+    /**
+     * Defines the restore structure step.
+     *
+     * @return void
+     */
     protected function define_my_steps() {
         $this->add_step(
             new restore_trigonometry_activity_structure_step('trigonometry_structure', 'trigonometry.xml')
         );
     }
 
+    /**
+     * Defines fields whose content is processed by the link decoder.
+     *
+     * @return restore_decode_content[]
+     */
     public static function define_decode_contents() {
         return [
             new restore_decode_content('trigonometry', ['intro'], 'trigonometry'),
         ];
     }
 
+    /**
+     * Defines link decoding rules for Trigonometry activities.
+     *
+     * @return restore_decode_rule[]
+     */
     public static function define_decode_rules() {
         return [
             new restore_decode_rule(
@@ -61,6 +81,11 @@ class restore_trigonometry_activity_task extends restore_activity_task {
         ];
     }
 
+    /**
+     * Defines legacy activity log restore rules.
+     *
+     * @return restore_log_rule[]
+     */
     public static function define_restore_log_rules() {
         return [
             new restore_log_rule(
@@ -72,6 +97,11 @@ class restore_trigonometry_activity_task extends restore_activity_task {
         ];
     }
 
+    /**
+     * Defines legacy course log restore rules.
+     *
+     * @return restore_log_rule[]
+     */
     public static function define_restore_log_rules_for_course() {
         return [
             new restore_log_rule(

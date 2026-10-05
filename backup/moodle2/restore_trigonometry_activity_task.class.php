@@ -55,11 +55,6 @@ class restore_trigonometry_activity_task extends restore_activity_task {
      *
      * @return restore_decode_content[]
      */
-    /**
-     * Defines content fields that must pass through the link decoder.
-     *
-     * @return array
-     */
     public static function define_decode_contents() {
         return [
             new restore_decode_content('trigonometry', ['intro'], 'trigonometry'),
@@ -70,11 +65,6 @@ class restore_trigonometry_activity_task extends restore_activity_task {
      * Defines link decoding rules for Trigonometry activities.
      *
      * @return restore_decode_rule[]
-     */
-    /**
-     * Defines link decoding rules for restored activity URLs.
-     *
-     * @return array
      */
     public static function define_decode_rules() {
         return [
@@ -96,11 +86,6 @@ class restore_trigonometry_activity_task extends restore_activity_task {
      *
      * @return restore_log_rule[]
      */
-    /**
-     * Defines legacy activity log restore rules.
-     *
-     * @return array
-     */
     public static function define_restore_log_rules() {
         return [
             new restore_log_rule(
@@ -116,11 +101,6 @@ class restore_trigonometry_activity_task extends restore_activity_task {
      * Defines legacy course log restore rules.
      *
      * @return restore_log_rule[]
-     */
-    /**
-     * Defines legacy course log restore rules.
-     *
-     * @return array
      */
     public static function define_restore_log_rules_for_course() {
         return [

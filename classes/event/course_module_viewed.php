@@ -45,11 +45,6 @@ class course_module_viewed extends \core\event\course_module_viewed {
      *
      * @return array
      */
-    /**
-     * Maps the event object ID for backup and restore.
-     *
-     * @return array
-     */
     public static function get_objectid_mapping() {
         return [
             'db' => 'trigonometry',

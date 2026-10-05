@@ -45,11 +45,6 @@ class restore_trigonometry_activity_structure_step extends restore_activity_stru
      * @param array $data Restored activity data.
      * @return void
      */
-    /**
-     * Restores the Trigonometry activity record.
-     *
-     * @param array $data Activity data from the backup.
-     */
     protected function process_trigonometry($data) {
         global $DB;
 
@@ -64,9 +59,6 @@ class restore_trigonometry_activity_structure_step extends restore_activity_stru
      * Restores files associated with the activity.
      *
      * @return void
-     */
-    /**
-     * Restores files related to the activity.
      */
     protected function after_execute() {
         $this->add_related_files('mod_trigonometry', 'intro', null);

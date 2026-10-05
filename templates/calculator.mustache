@@ -99,13 +99,15 @@
             <div class="trigonometry-formulas">
                 <h3>{{formulas}}</h3>
                 <div class="trigonometry-formula-grid">
-                    <div><strong>sen(θ)</strong> = y / r</div>
-                    <div><strong>cos(θ)</strong> = x / r</div>
-                    <div><strong>tan(θ)</strong> = sen(θ) / cos(θ) = y / x</div>
-                    <div><strong>sen²(θ) + cos²(θ)</strong> = 1</div>
-                    <div><strong>arcsen(x)</strong> → [-90°, 90°]</div>
-                    <div><strong>arccos(x)</strong> → [0°, 180°]</div>
-                    <div><strong>arctan(x)</strong> → (-90°, 90°)</div>
+                    <div><strong>{{#str}} sinenotation, mod_trigonometry {{/str}}</strong> = y / r</div>
+                    <div><strong>{{#str}} cosinenotation, mod_trigonometry {{/str}}</strong> = x / r</div>
+                    <div><strong>{{#str}} tangentnotation, mod_trigonometry {{/str}}</strong> =
+                        {{#str}} sinenotation, mod_trigonometry {{/str}} /
+                        {{#str}} cosinenotation, mod_trigonometry {{/str}} = y / x</div>
+                    <div><strong>{{#str}} pythagoreanidentity, mod_trigonometry {{/str}}</strong> = 1</div>
+                    <div><strong>{{#str}} arcsinenotation, mod_trigonometry {{/str}}</strong> → [-90°, 90°]</div>
+                    <div><strong>{{#str}} arccosinenotation, mod_trigonometry {{/str}}</strong> → [0°, 180°]</div>
+                    <div><strong>{{#str}} arctangentnotation, mod_trigonometry {{/str}}</strong> → (-90°, 90°)</div>
                 </div>
             </div>
         </section>
@@ -143,9 +145,12 @@
             <input class="trigonometry-slider" type="range" min="-360" max="360" step="1" value="45"
                    aria-label="{{angle}}">
             <div class="trigonometry-circle-values">
-                <span>x = cos(θ): <strong data-circle="x">0.7071</strong></span>
-                <span>y = sen(θ): <strong data-circle="y">0.7071</strong></span>
-                <span>tan(θ): <strong data-circle="tan">1</strong></span>
+                <span>x = {{#str}} cosinenotation, mod_trigonometry {{/str}}:
+                    <strong data-circle="x">0.7071</strong></span>
+                <span>y = {{#str}} sinenotation, mod_trigonometry {{/str}}:
+                    <strong data-circle="y">0.7071</strong></span>
+                <span>{{#str}} tangentnotation, mod_trigonometry {{/str}}:
+                    <strong data-circle="tan">1</strong></span>
             </div>
         </section>
     </div>

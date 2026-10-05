@@ -15,17 +15,36 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * version.php
+ * Backup structure for mod_trigonometry.
  *
  * @package   mod_trigonometry
+ * @category  backup
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2026100501;
-$plugin->release = '1.1.3';
-$plugin->component = "mod_trigonometry";
-$plugin->requires = 2024100700; // Moodle 4.5.
-$plugin->maturity = MATURITY_STABLE;
+/**
+ * Defines the complete Trigonometry activity structure.
+ */
+class backup_trigonometry_activity_structure_step extends backup_activity_structure_step {
+    /**
+     * Defines the activity data included in the backup.
+     *
+     * @return backup_nested_element
+     */
+    protected function define_structure() {
+        $trigonometry = new backup_nested_element('trigonometry', ['id'], [
+            'name',
+            'intro',
+            'introformat',
+            'timemodified',
+        ]);
+
+        $trigonometry->set_source_table('trigonometry', ['id' => backup::VAR_ACTIVITYID]);
+        $trigonometry->annotate_files('mod_trigonometry', 'intro', null);
+
+        return $this->prepare_activity_structure($trigonometry);
+    }
+}

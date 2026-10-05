@@ -33,6 +33,14 @@ require_login($course, true, $cm);
 $context = context_module::instance($cm->id);
 require_capability("mod/trigonometry:view", $context);
 
+$event = \mod_trigonometry\event\course_module_viewed::create([
+    "objectid" => $trigonometry->id,
+    "context" => $context,
+]);
+$event->add_record_snapshot("course", $course);
+$event->add_record_snapshot("trigonometry", $trigonometry);
+$event->trigger();
+
 $PAGE->set_url("/mod/trigonometry/view.php", ["id" => $cm->id]);
 $PAGE->set_title(format_string($trigonometry->name));
 $PAGE->set_heading(format_string($course->fullname));

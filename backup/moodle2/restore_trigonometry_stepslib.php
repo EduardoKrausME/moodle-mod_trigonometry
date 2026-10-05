@@ -15,17 +15,37 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * version.php
+ * Restore structure for mod_trigonometry.
  *
  * @package   mod_trigonometry
+ * @category  backup
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2026100501;
-$plugin->release = '1.1.3';
-$plugin->component = "mod_trigonometry";
-$plugin->requires = 2024100700; // Moodle 4.5.
-$plugin->maturity = MATURITY_STABLE;
+/**
+ * Restores one Trigonometry activity.
+ */
+class restore_trigonometry_activity_structure_step extends restore_activity_structure_step {
+    protected function define_structure() {
+        return $this->prepare_activity_structure([
+            new restore_path_element('trigonometry', '/activity/trigonometry'),
+        ]);
+    }
+
+    protected function process_trigonometry($data) {
+        global $DB;
+
+        $data = (object) $data;
+        $data->course = $this->get_courseid();
+
+        $newitemid = $DB->insert_record('trigonometry', $data);
+        $this->apply_activity_instance($newitemid);
+    }
+
+    protected function after_execute() {
+        $this->add_related_files('mod_trigonometry', 'intro', null);
+    }
+}

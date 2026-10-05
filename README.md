@@ -1,16 +1,31 @@
-# mod_trigonometry
+# Trigonometry
 
-Moodle activity module with an interactive trigonometry calculator.
+Trigonometry is a Moodle activity module that gives students an interactive calculator for exploring angles, trigonometric functions and the unit circle directly inside a course.
 
-It provides:
+Teachers add it like any other activity, define the activity name and an optional description, and can use Moodle's standard activity and completion settings. Students open the activity and work with the calculator in the browser; there is no submission workflow, no grading and no storage of student answers.
+
+## Features
 
 - sine, cosine and tangent from an angle;
 - degree and radian input;
 - arc sine, arc cosine and arc tangent;
-- results in degrees and radians;
+- inverse-function results in degrees and radians;
 - domain handling for inverse sine and cosine;
-- an interactive unit circle with x/y projections and tangent visualization;
-- a draggable point and angle slider;
-- common trigonometric relationships.
+- interactive unit circle with x/y projections and tangent visualization;
+- draggable point and angle slider;
+- common trigonometric identities and relationships;
+- activity-view completion tracking and Moodle log events;
+- course backup and restore support.
 
-All calculations run locally in the browser and the activity does not store student answers or personal data.
+All calculations run locally in the browser and the activity does not store personal data or student answers.
+
+## Requirements
+
+- Moodle 4.5 or later;
+- JavaScript enabled in the browser.
+
+## Screenshots
+
+![Trigonometry calculator](screenshots/new-1.png)
+
+![Interactive trigonometry activity](screenshots/new-2.png)

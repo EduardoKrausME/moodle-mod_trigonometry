@@ -15,17 +15,31 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * version.php
+ * Course module viewed event.
  *
  * @package   mod_trigonometry
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+namespace mod_trigonometry\event;
 
-$plugin->version = 2026100501;
-$plugin->release = '1.1.3';
-$plugin->component = "mod_trigonometry";
-$plugin->requires = 2024100700; // Moodle 4.5.
-$plugin->maturity = MATURITY_STABLE;
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Event triggered when a Trigonometry activity is viewed.
+ */
+class course_module_viewed extends \core\event\course_module_viewed {
+    protected function init() {
+        $this->data['objecttable'] = 'trigonometry';
+        $this->data['crud'] = 'r';
+        $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
+    }
+
+    public static function get_objectid_mapping() {
+        return [
+            'db' => 'trigonometry',
+            'restore' => 'trigonometry',
+        ];
+    }
+}
